@@ -1,0 +1,142 @@
+<nav class="sidebar">
+  <ul class="side-nav">
+    <li class="side-nav__item side-nav__item--active">
+      <a href="#" class="side-nav__link">
+        <svg class="side-nav__icon">
+          <use xlink:href="sprite.svg#icon-house_siding"></use>
+        </svg>
+        <span>Hotel</span>
+      </a>
+    </li>
+
+    <li class="side-nav__item">
+      <a href="#" class="side-nav__link">
+        <svg class="side-nav__icon">
+          <use xlink:href="sprite.svg#icon-flight_takeoff"></use>
+        </svg>
+        <span>Flights</span>
+      </a>
+    </li>
+
+    <li class="side-nav__item">
+      <a href="#" class="side-nav__link">
+        <svg class="side-nav__icon">
+          <use xlink:href="sprite.svg#icon-vpn_key"></use>
+        </svg>
+        <span>Car rental</span>
+      </a>
+    </li>
+
+    <li class="side-nav__item">
+      <a href="#" class="side-nav__link">
+        <svg class="side-nav__icon">
+          <use xlink:href="sprite.svg#icon-map"></use>
+        </svg>
+        <span>Tours</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="legal">&copy; 2017 by trillo. All rights reserved.</div>
+</nav>
+
+<style lang="scss">
+  .side-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+
+    @media only screen and (max-width: 56.25em) {
+      display: flex;
+      margin: 0;
+    }
+
+    &__item {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+
+        @media only screen and (max-width: 56.25em) {
+          margin: 0;
+        }
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        flex: 1;
+      }
+    }
+
+    &__item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 3px;
+      background-color: var(--color-primary);
+      transform: scaleY(0);
+      transition:
+        transform 0.2s,
+        width 0.4s cubic-bezier(1, 0, 0, 1),
+        background-color 0.1s;
+    }
+
+    &__item:hover::before,
+    &__item--active::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+
+    &__item:active::before {
+      background-color: var(--color-primary-light);
+    }
+
+    &__link:link,
+    &__link:visited {
+      color: var(--color-grey-light-1);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+      position: relative;
+
+      @media only screen and (max-width: 56.25em) {
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      @media only screen and (max-width: 37.5em) {
+        flex-direction: column;
+        padding: 1.5rem 0.5rem;
+      }
+    }
+
+    &__icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      margin-right: 2rem;
+      fill: currentColor;
+
+      @media only screen and (max-width: 37.5em) {
+        margin-right: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  .legal {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--color-grey-light-4);
+    padding: 2.5rem;
+
+    @media only screen and (max-width: 56.25em) {
+      display: none;
+    }
+  }
+</style>
